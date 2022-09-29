@@ -1,5 +1,7 @@
 <%- include('./shared/html-head.ejs') %>
     <link rel="stylesheet" type="text/css" href="./css/buyer-registration.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -17,6 +19,8 @@
                 <input type="password" class="form-control" id="buyerRegistrationPasswordInput" />
 
                 <button class="btn btn-primary mt-3" type="submit">Register</button>
+
+                <span class="d-none mt-3 alert alert-danger" id="formError"></span>
             </form>
         </main>
     </div>
