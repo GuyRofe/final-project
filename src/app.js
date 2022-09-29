@@ -1,7 +1,17 @@
 const path = require('path');
+
 const express = require('express');
+const session = require('express-session');
+
+const authRouter = require('./routers/auth');
 
 const app = express();
+
+app.use(session({
+    secret: process.env.SESSION_SECRET,    
+    saveUninitialized: false,
+    resave: false,
+}));
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -16,11 +26,13 @@ app.use((req, res, next) => {
     next();
 });
 
+app.set("view engine", "ejs");
+app.set('views', './src/views');
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, 'web', 'index.html'));
-});
+app.use(authRouter);
 
 module.exports = app;
