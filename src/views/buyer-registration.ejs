@@ -1,0 +1,28 @@
+<%- include('./shared/html-head.ejs') %>
+    <link rel="stylesheet" type="text/css" href="./css/buyer-registration.css">
+</head>
+
+<body>
+    <div class="d-flex flex-column h-100">
+        <%- include('./shared/guest-nav.ejs') %>
+
+        <main class="d-flex align-items-center justify-content-center h-100">
+            <form id="registrationForm" class="d-flex flex-column registrationForm p-3">
+                <h1>Buyer Registration</h1>
+
+                <label class="mt-3" for="buyerRegistrationUsernameInput">Enter a Username</label>
+                <input type="text" class="form-control" id="buyerRegistrationUsernameInput" />
+
+                <label class="mt-3" for="buyerRegistrationPasswordInput">Enter your Password</label>
+                <input type="password" class="form-control" id="buyerRegistrationPasswordInput" />
+
+                <button class="btn btn-primary mt-3" type="submit">Register</button>
+            </form>
+        </main>
+    </div>
+</body>
+
+<%- include('./shared/html-scripts.ejs') %>
+<script src="./js/buyer-registration.js"></script> 
+
+</html>
