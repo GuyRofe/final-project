@@ -51,8 +51,6 @@ $(document).ready(function() {
                 navUsername.text(`Hello, ${username}`);
             },
             error: function(response) {
-                console.log(response);
-
                 const responseMessage = response.responseText;
                 const responseMessageObject = JSON.parse(responseMessage);
 

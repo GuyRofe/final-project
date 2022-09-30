@@ -1,14 +1,19 @@
 <%- include('./shared/html-head.ejs') %>
+<% if (role === 1) { %>
+    <link rel="stylesheet" type="text/css" href="./css/seller-index.css">
+<% } %>
 </head>
 
 <body>
     <div class="d-flex flex-column h-100">
         <% if (role === 0) { %>
             <%- include('./shared/buyer-nav'); %>
+            <%- include('./buyer-index'); %>
         <% } %>
 
         <% if (role === 1) { %>
             <%- include('./shared/seller-nav'); %>
+            <%- include('./seller-index'); %>
         <% } %>
     </div>
 </body>
@@ -17,10 +22,12 @@
 
 <% if (role === 0) { %>
     <script src="./js/buyer-nav.js"></script> 
+    <script src="./js/buyer-index.js"></script> 
 <% } %>
 
 <% if (role === 1) { %>
     <script src="./js/seller-nav.js"></script> 
+    <script src="./js/seller-index.js"></script> 
 <% } %>
 
 </html>

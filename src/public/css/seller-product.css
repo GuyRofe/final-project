@@ -1,0 +1,14 @@
+.editProductForm {
+    box-shadow: 4px 4px 5px #8c8c8c;
+    border: 1px solid #8c8c8c;
+    border-radius: 5px;
+    width: 600px;
+}
+
+.descriptionInput {
+    resize: none;
+}
+
+.XXX {
+    border: 1px solid red;
+}

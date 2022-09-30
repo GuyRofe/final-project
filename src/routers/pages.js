@@ -7,7 +7,8 @@ const {
     sellerRegistrationPage,
     homePage,
     accountPage,
-    postProductPage
+    postProductPage,
+    sellerProductPage
 } = require('../controllers/pages');
 
 const {
@@ -30,5 +31,7 @@ router.get("/", isAuthorizedPager, homePage);
 router.get("/account", isUserPager, accountPage);
 
 router.get("/post-product", isSellerPager, postProductPage);
+
+router.get('/seller-product/:id', isSellerPager, sellerProductPage);
 
 module.exports = router;

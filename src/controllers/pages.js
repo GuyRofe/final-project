@@ -34,6 +34,12 @@ const postProductPage = (req, res) => {
     });
 }
 
+const sellerProductPage = (req, res) => {
+    return res.render("seller-product", {
+        username: req.session.user.username,
+    });
+}
+
 module.exports = {
     buyerLoginPage,
     buyerRegistrationPage,
@@ -41,5 +47,6 @@ module.exports = {
     sellerRegistrationPage,
     homePage,
     accountPage,
-    postProductPage
+    postProductPage,
+    sellerProductPage
 };
