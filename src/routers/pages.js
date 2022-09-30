@@ -5,12 +5,14 @@ const {
     buyerRegistrationPage,
     sellerLoginPage,
     sellerRegistrationPage,
-    homePage
+    homePage,
+    accountPage
 } = require('../controllers/pages');
 
 const {
     isAuthorizedPager,
     isGuestPager,
+    isUserPager
 } = require('../middlewares/pages');
 
 const router = express.Router();
@@ -22,5 +24,7 @@ router.get("/seller-login", isGuestPager, sellerLoginPage);
 router.get("/seller-registration", isGuestPager, sellerRegistrationPage);
 
 router.get("/", isAuthorizedPager, homePage);
+
+router.get("/account", isUserPager, accountPage);
 
 module.exports = router;

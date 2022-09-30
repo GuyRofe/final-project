@@ -15,7 +15,17 @@ const sellerRegistrationPage = (req, res) => {
 }
 
 const homePage = (req, res) => {
-    return res.render("index", {});
+    return res.render("index", {
+        role: req.session.user.role,
+        username: req.session.user.username,
+    });
+}
+
+const accountPage = (req, res) => {
+    return res.render("account", {
+        role: req.session.user.role,
+        username: req.session.user.username,
+    });
 }
 
 module.exports = {
@@ -23,5 +33,6 @@ module.exports = {
     buyerRegistrationPage,
     sellerLoginPage,
     sellerRegistrationPage,
-    homePage
+    homePage,
+    accountPage
 };

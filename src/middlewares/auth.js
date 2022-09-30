@@ -18,7 +18,18 @@ const isGuest = (req, res, next) => {
     });
 }
 
+const isUser = (req, res, next) => {
+    if (req.session.user && req.session.user.role !== 2) {
+        return next();
+    }
+
+    return res.status(401).send({
+        message: 'Only for users'
+    });
+}
+
 module.exports = {
     isAuthorized,
-    isGuest
+    isGuest,
+    isUser
 };

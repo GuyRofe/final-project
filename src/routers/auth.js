@@ -4,11 +4,13 @@ const {
     buyerRegistration,
     sellerRegistration,
     sellerLogin,
-    buyerLogin
+    buyerLogin,
+    logout
 } = require('../controllers/auth');
 
 const {
-    isGuest
+    isGuest,
+    isAuthorized
 } = require('../middlewares/auth');
 
 const router = express.Router();
@@ -18,5 +20,7 @@ router.post("/buyer-login", isGuest, buyerLogin);
 
 router.post('/seller-registration', isGuest, sellerRegistration);
 router.post('/seller-login', isGuest, sellerLogin);
+
+router.get('/logout', isAuthorized, logout);
 
 module.exports = router;

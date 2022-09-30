@@ -2,9 +2,25 @@
 </head>
 
 <body>
+    <div class="d-flex flex-column h-100">
+        <% if (role === 0) { %>
+            <%- include('./shared/buyer-nav'); %>
+        <% } %>
 
+        <% if (role === 1) { %>
+            <%- include('./shared/seller-nav'); %>
+        <% } %>
+    </div>
 </body>
 
 <%- include('./shared/html-scripts.ejs') %>
+
+<% if (role === 0) { %>
+    <script src="./js/buyer-nav.js"></script> 
+<% } %>
+
+<% if (role === 1) { %>
+    <script src="./js/seller-nav.js"></script> 
+<% } %>
 
 </html>

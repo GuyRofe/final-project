@@ -1,0 +1,39 @@
+<%- include('./shared/html-head.ejs') %>
+<link rel="stylesheet" type="text/css" href="./css/account.css">
+</head>
+
+<body>
+    <div class="d-flex flex-column h-100">
+        <% if (role === 0) { %>
+            <%- include('./shared/buyer-nav'); %>
+        <% } %>
+
+        <% if (role === 1) { %>
+            <%- include('./shared/seller-nav'); %>
+        <% } %>
+
+        <main class="d-flex align-items-center justify-content-center h-100">
+            <form id="accountForm" class="d-flex flex-column accountForm p-3">
+                <h1 id="formHeader">Your Account - <%- username %></h1>
+
+                <label class="mt-3" for="buyerLoginUsernameInput">Edit your username</label>
+                <input type="text" class="form-control" id="newUsernameInput" />
+
+                <button class="btn btn-primary mt-3" type="submit">Saves Changes</button>
+                <button id="deleteAccountButton" type="button" class="btn btn-danger mt-3">Delete Account</button>
+
+                <span class="d-none mt-3 alert alert-danger" id="formError"></span>
+            </form>
+        </main>
+    </div>
+</body>
+
+<%- include('./shared/html-scripts.ejs') %>
+
+<script src="./js/account.js"></script> 
+
+<% if (role === 0) { %>
+    <script src="./js/buyer-nav.js"></script> 
+<% } %>
+
+</html>
