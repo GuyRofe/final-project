@@ -1,5 +1,9 @@
+.sideNav {
+    background-color: #e2e2e2;
+    width: 15%;
+}
+
 .productsList {
-    width: 100%;
     flex-wrap: wrap;
     overflow-y: auto;
 }

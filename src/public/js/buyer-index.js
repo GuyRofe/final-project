@@ -1,9 +1,13 @@
 $(document).ready(function() {
     const productsContainer = $('#productsContainer');
 
+    const urlParams = new URLSearchParams(window.location.search);
+    const categoryQuery = urlParams.get('category');
+    const fetchProductUrl = categoryQuery ? `/fetch-products?category=${categoryQuery}` : '/fetch-products';
+
     $.ajax({
         type: "GET",
-        url: "/fetch-products",
+        url: fetchProductUrl,
         dataType: "json",
         success: function(response) {
             const products = response.products;

@@ -146,8 +146,11 @@ const editSellerProduct = async (req, res) => {
 }
 
 const fetchProducts = async (req, res) => {
+    const possibleCategories = ['sports', 'fashion', 'food', 'cars', 'tickets'];
+    const categoryQuery = req.query.category;
+
     try {
-        const allProducts = await Product.find({ });
+        const allProducts = possibleCategories.includes(categoryQuery) ? await Product.find({ category: categoryQuery }) : await Product.find({ });
         const userPurchasedProducts = await Purchase.find({ buyer: mongoose.Types.ObjectId(req.session.user.id) });
 
         const products = allProducts.filter((product) => {

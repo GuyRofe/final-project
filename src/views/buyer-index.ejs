@@ -1,9 +1,20 @@
-<main>
-    <header class="bg-primary bg-gradient mb-2 p-2">
+<main class="d-flex flex-column h-100">
+    <header class="bg-primary bg-gradient p-2">
         <h2 class="fw-bold">Products</h1>
     </header>
 
-    <section class="p-3">
-        <div id="productsContainer" class="d-flex productsList"></div>
+    <section class="h-100 d-flex">
+        <aside class="d-flex flex-column justify-content-center align-items-center sideNav h-100 me-2">
+            <h4 class="mb-2">Category</h4>
+
+            <a href="/">All</a>
+            <a href="/?category=sports">Sports</a>
+            <a href="/?category=fashion">Fashion</a>
+            <a href="/?category=food">Food</a>
+            <a href="/?category=cars">Cars</a>
+            <a href="/?category=tickets">Tickets</a>
+        </aside>
+
+        <div id="productsContainer" class="d-flex productsList w-100 mt-2 align-items-start"></div>
     </section>
 </main>
