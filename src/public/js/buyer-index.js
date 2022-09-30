@@ -1,13 +1,30 @@
 $(document).ready(function() {
     const productsContainer = $('#productsContainer');
+    const searchByTitleInput = $('#searchByTitleInput');
+    const searchByMinPriceInput = $('#searchByMinPriceInput');
+    const searchButton = $('#searchButton');
+    const categorySelect = $('#categorySelect');
 
     const urlParams = new URLSearchParams(window.location.search);
-    const categoryQuery = urlParams.get('category');
-    const fetchProductUrl = categoryQuery ? `/fetch-products?category=${categoryQuery}` : '/fetch-products';
+    const fetchProductsUrl = `/fetch-products?${urlParams.toString()}`;
+
+    if (urlParams.has('title')) {
+        searchByTitleInput.val(urlParams.get('title'));
+    }
+
+    if (urlParams.has('minPrice')) {
+        searchByMinPriceInput.val(urlParams.get('minPrice'));
+    }
+
+    if (urlParams.has('category')) {
+        categorySelect.val(urlParams.get('category'));
+    } else {
+        categorySelect.val('');
+    }
 
     $.ajax({
         type: "GET",
-        url: fetchProductUrl,
+        url: fetchProductsUrl,
         dataType: "json",
         success: function(response) {
             const products = response.products;
@@ -41,5 +58,29 @@ $(document).ready(function() {
                 productItem.remove();
             },
         });
+    });
+
+    searchButton.on('click', function() {
+        const title = searchByTitleInput.val();
+        const minPrice = searchByMinPriceInput.val();
+        const category = categorySelect.find(":selected").val();
+
+        urlParams.delete('title');
+        urlParams.delete('minPrice');
+        urlParams.delete('category');
+
+        if (title) {
+            urlParams.set('title', title);
+        }
+
+        if (minPrice) {
+            urlParams.set('minPrice', minPrice);
+        }
+
+        if (category) {
+            urlParams.set('category', category);
+        }
+
+        window.location.href = `/?${urlParams.toString()}`
     });
 });

@@ -148,9 +148,25 @@ const editSellerProduct = async (req, res) => {
 const fetchProducts = async (req, res) => {
     const possibleCategories = ['sports', 'fashion', 'food', 'cars', 'tickets'];
     const categoryQuery = req.query.category;
+    const titleQuery = req.query.title;
+    const minPriceQuery = req.query.minPrice;
+
+    const findQuery = {};
+
+    if (possibleCategories.includes(categoryQuery)) {
+        findQuery.category = categoryQuery
+    };
+
+    if (titleQuery) {
+        findQuery.title = titleQuery;
+    }
+
+    if (minPriceQuery && typeof +minPriceQuery === 'number') {
+        findQuery.price = { $gte: +minPriceQuery };
+    }
 
     try {
-        const allProducts = possibleCategories.includes(categoryQuery) ? await Product.find({ category: categoryQuery }) : await Product.find({ });
+        const allProducts =  await Product.find(findQuery);
         const userPurchasedProducts = await Purchase.find({ buyer: mongoose.Types.ObjectId(req.session.user.id) });
 
         const products = allProducts.filter((product) => {
