@@ -1,0 +1,44 @@
+<%- include('./shared/html-head.ejs') %>
+<link rel="stylesheet" type="text/css" href="./css/post-product.css">
+</head>
+
+<body>
+    <div class="d-flex flex-column h-100">
+        <%- include('./shared/seller-nav'); %>
+
+        <main class="d-flex align-items-center justify-content-center h-100">
+            <form id="postProductForm" class="d-flex flex-column postProductForm p-3">
+                <h1>Post Product</h1>
+
+                <label class="mt-3" for="productTitleInput">Enter a Title</label>
+                <input type="text" class="form-control" id="productTitleInput" />
+
+                <label class="mt-3" for="productDescriptionInput">Enter a Description</label>
+                <textarea class="form-control descriptionInput" id="productDescriptionInput"></textarea>
+
+                <div class="form-group mt-3">
+                    <label for="productCategorySelect">Select Category</label>
+                    <select class="form-control" id="productCategorySelect">
+                      <option value="sports" selected>Sports</option>
+                      <option value="fashion">Fashion</option>
+                      <option value="food">Food</option>
+                      <option value="cars">Cars</option>
+                      <option value="tickets">Tickets</option>
+                    </select>
+                </div>
+
+                <label class="mt-3" for="productPriceInput">Enter a Price</label>
+                <input type="text" class="form-control" id="productPriceInput" onkeypress="return /[0-9]/i.test(event.key)" />
+
+                <button class="btn btn-primary mt-3" type="submit">Post</button>
+
+                <span class="d-none mt-3 alert alert-danger" id="formError"></span>
+            </form>
+        </main>
+    </div>
+</body>
+
+<%- include('./shared/html-scripts.ejs') %>
+
+    <script src="./js/post-product.js"></script> 
+</html>

@@ -29,7 +29,7 @@ const deleteAccount = (req, res) => {
 const editUsername = async (req, res) => {
     const newUsername = req.body.username;
 
-    if (!newUsername) {
+    if (!newUsername || typeof newUsername !== 'string') {
         return res.status(400).send({
             message: 'Invalid data'
         });

@@ -6,6 +6,7 @@ const session = require('express-session');
 const authRouter = require('./routers/auth');
 const pagesRouter = require('./routers/pages');
 const accountRouter = require('./routers/account');
+const productRouter = require('./routers/product');
 
 const app = express();
 
@@ -38,5 +39,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(authRouter);
 app.use(pagesRouter);
 app.use(accountRouter);
+app.use(productRouter);
 
 module.exports = app;

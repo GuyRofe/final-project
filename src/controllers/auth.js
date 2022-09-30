@@ -5,7 +5,7 @@ const buyerRegistration = async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
-    if (!username || !password) {
+    if (!username || !password || typeof username !== 'string' || typeof password !== 'string') {
         return res.status(400).send({
             message: 'Invalid data'
         });
@@ -38,7 +38,7 @@ const buyerRegistration = async (req, res) => {
         
         await newBuyer.save();
 
-        req.session.user = { username, role: 0 };
+        req.session.user = { username, role: 0, id: newBuyer.id };
         
        return res.status(201).send({ message: 'Successfully registered' });
     } catch {
@@ -52,7 +52,7 @@ const buyerLogin = async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
-    if (!username || !password) {
+    if (!username || !password || typeof username !== 'string' || typeof password !== 'string') {
         return res.status(400).send({
             message: 'Invalid data'
         });
@@ -73,7 +73,7 @@ const buyerLogin = async (req, res) => {
             });
         }
 
-        req.session.user = { username, role: 0 };
+        req.session.user = { username, role: 0, id: buyerInDb.id };
         
        return res.status(200).send({ message: 'Successfully logged in' });
     } catch {
@@ -87,7 +87,7 @@ const sellerRegistration = async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
-    if (!username || !password) {
+    if (!username || !password || typeof username !== 'string' || typeof password !== 'string') {
         return res.status(400).send({
             message: 'Invalid data'
         });
@@ -120,7 +120,7 @@ const sellerRegistration = async (req, res) => {
         
         await newSeller.save();
 
-        req.session.user = { username, role: 1 };
+        req.session.user = { username, role: 1, id: newSeller.id };
         
         return res.status(201).send({ message: 'Successfully registered' });
     } catch {
@@ -134,7 +134,7 @@ const sellerLogin = async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
-    if (!username || !password) {
+    if (!username || !password || typeof username !== 'string' || typeof password !== 'string') {
         return res.status(400).send({
             message: 'Invalid data'
         });
@@ -155,7 +155,7 @@ const sellerLogin = async (req, res) => {
             });
         }
 
-        req.session.user = { username, role: 1 };
+        req.session.user = { username, role: 1, id: sellerInDb.id };
         
        return res.status(200).send({ message: 'Successfully logged in' });
     } catch {

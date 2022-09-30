@@ -28,11 +28,18 @@ const accountPage = (req, res) => {
     });
 }
 
+const postProductPage = (req, res) => {
+    return res.render("post-product", {
+        username: req.session.user.username,
+    });
+}
+
 module.exports = {
     buyerLoginPage,
     buyerRegistrationPage,
     sellerLoginPage,
     sellerRegistrationPage,
     homePage,
-    accountPage
+    accountPage,
+    postProductPage
 };
