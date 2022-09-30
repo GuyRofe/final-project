@@ -1,3 +1,10 @@
+@font-face {
+	font-family: "Rubik";
+	src: url("../fonts/Rubik/Rubik-Regular.ttf");
+	font-weight: normal;
+}
+
+
 * {
 	box-sizing: border-box;
 }
@@ -11,8 +18,11 @@ body {
 	height: 100%;
 	margin: 0;
 	overflow-x: hidden;
-	font-family: sans-serif;
+	font-family: 'Rubik', sans-serif;
 	direction: ltr;
+	display: flex;
+	flex-direction: column;
+
 }
 
 input,
@@ -74,4 +84,8 @@ menu {
 hr {
 	margin: 0;
 	border: none;
+}
+
+.logoHeader {
+	text-shadow: 1px 1px #c4c4c4;
 }

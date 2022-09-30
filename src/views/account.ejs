@@ -26,6 +26,8 @@
             </form>
         </main>
     </div>
+
+    <%- include('./shared/footer'); %>
 </body>
 
 <%- include('./shared/html-scripts.ejs') %>
@@ -34,6 +36,10 @@
 
 <% if (role === 0) { %>
     <script src="./js/buyer-nav.js"></script> 
+<% } %>
+
+<% if (role === 1) { %>
+    <script src="./js/seller-nav.js"></script> 
 <% } %>
 
 </html>

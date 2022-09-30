@@ -8,13 +8,17 @@
         <%- include('./shared/buyer-nav'); %>
 
         <main>
+            <header class="bg-primary bg-gradient mb-2 p-2">
+                <h2 class="fw-bold">My Purchases</h1>
+            </header>
+
             <section class="p-3">
-                <h2 class="mb-2">My Purchases</h1>
-        
                 <div id="productsContainer" class="d-flex productsList"></div>
             </section>
         </main>
     </div>
+
+    <%- include('./shared/footer'); %>
 </body>
 
 <%- include('./shared/html-scripts.ejs') %>
