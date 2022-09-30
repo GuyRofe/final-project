@@ -7,6 +7,7 @@ const authRouter = require('./routers/auth');
 const pagesRouter = require('./routers/pages');
 const accountRouter = require('./routers/account');
 const productRouter = require('./routers/product');
+const purchaseRouter = require('./routers/purchase');
 
 const app = express();
 
@@ -40,5 +41,6 @@ app.use(authRouter);
 app.use(pagesRouter);
 app.use(accountRouter);
 app.use(productRouter);
+app.use(purchaseRouter);
 
 module.exports = app;

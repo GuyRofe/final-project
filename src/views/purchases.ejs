@@ -1,0 +1,25 @@
+<%- include('./shared/html-head.ejs') %>
+
+<link rel="stylesheet" type="text/css" href="./css/purchases.css">
+</head>
+
+<body>
+    <div class="d-flex flex-column h-100">
+        <%- include('./shared/buyer-nav'); %>
+
+        <main>
+            <section class="p-3">
+                <h2 class="mb-2">My Purchases</h1>
+        
+                <div id="productsContainer" class="d-flex productsList"></div>
+            </section>
+        </main>
+    </div>
+</body>
+
+<%- include('./shared/html-scripts.ejs') %>
+
+    <script src="./js/buyer-nav.js"></script> 
+    <script src="./js/purchases.js"></script> 
+
+</html>

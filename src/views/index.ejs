@@ -1,4 +1,9 @@
 <%- include('./shared/html-head.ejs') %>
+
+<% if (role === 0) { %>
+    <link rel="stylesheet" type="text/css" href="./css/buyer-index.css">
+<% } %>
+
 <% if (role === 1) { %>
     <link rel="stylesheet" type="text/css" href="./css/seller-index.css">
 <% } %>

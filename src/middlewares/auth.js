@@ -38,9 +38,20 @@ const isSeller = (req, res, next) => {
     });
 }
 
+const isBuyer = (req, res, next) => {
+    if (req.session.user && req.session.user.role === 0) {
+        return next();
+    }
+
+    return res.status(401).send({
+        message: 'Only for buyers'
+    });
+}
+
 module.exports = {
     isAuthorized,
     isGuest,
     isUser,
-    isSeller
+    isSeller,
+    isBuyer
 };
