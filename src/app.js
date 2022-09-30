@@ -4,6 +4,7 @@ const express = require('express');
 const session = require('express-session');
 
 const authRouter = require('./routers/auth');
+const pagesRouter = require('./routers/pages');
 
 const app = express();
 
@@ -34,5 +35,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(authRouter);
+app.use(pagesRouter);
 
 module.exports = app;

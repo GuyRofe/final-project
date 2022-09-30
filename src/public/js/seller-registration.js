@@ -1,7 +1,7 @@
 $(document).ready(function() {
     const registrationForm = $('#registrationForm');
-    const usernameInput = $('#buyerRegistrationUsernameInput');
-    const passwordInput = $('#buyerRegistrationPasswordInput');
+    const usernameInput = $('#sellerRegistrationUsernameInput');
+    const passwordInput = $('#sellerRegistrationPasswordInput');
     const formError = $('#formError');
 
     registrationForm.on('submit', function(e) {
@@ -24,7 +24,7 @@ $(document).ready(function() {
         
         $.ajax({
             type: "POST",
-            url: "/buyer-registration",
+            url: "/seller-registration",
             data: postDataString,
             contentType: "application/json",
             dataType: "json",

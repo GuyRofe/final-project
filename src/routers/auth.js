@@ -1,17 +1,22 @@
 const express = require('express');
 
 const {
-    buyerLoginPage,
-    buyerRegistrationPage,
-    buyerRegistration
+    buyerRegistration,
+    sellerRegistration,
+    sellerLogin,
+    buyerLogin
 } = require('../controllers/auth');
+
+const {
+    isGuest
+} = require('../middlewares/auth');
 
 const router = express.Router();
 
-router.get("/buyer-login", buyerLoginPage);
+router.post("/buyer-registration", isGuest, buyerRegistration);
+router.post("/buyer-login", isGuest, buyerLogin);
 
-router.get("/buyer-registration", buyerRegistrationPage);
-
-router.post("/buyer-registration", buyerRegistration);
+router.post('/seller-registration', isGuest, sellerRegistration);
+router.post('/seller-login', isGuest, sellerLogin);
 
 module.exports = router;
