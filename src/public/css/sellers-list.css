@@ -1,10 +1,14 @@
-.productsList {
-    width: 100%;
+.sideNav {
+    background-color: #e2e2e2;
+    width: 18%;
+}
+
+.sellersContainer {
     flex-wrap: wrap;
     overflow-y: auto;
 }
 
-.productItem {
+.sellerItem {
     box-shadow: 4px 4px 5px #8c8c8c;
     border: 1px solid #8c8c8c;
     border-radius: 5px;

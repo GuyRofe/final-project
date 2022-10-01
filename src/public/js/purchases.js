@@ -13,8 +13,8 @@ $(document).ready(function() {
 
                 return finalHtml + `
                     <div class="d-flex flex-column productItem p-3 me-2 mb-2">
-                        <h3 class="text-dark">${purchase.productTitle}</h3>
-                        <p class="mb-3 text-dark">${purchase.productDescription}</p>
+                        <h3 class="text-dark overflowText">${purchase.productTitle}</h3>
+                        <p class="mb-3 text-dark overflowText">${purchase.productDescription}</p>
                         <span class="text-primary">Category: ${purchase.productCategory}</span>
                         <span class="text-primary">Price: ${purchase.productPrice}</span>
 

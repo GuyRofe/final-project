@@ -46,6 +46,18 @@ const purchasedPages = (req, res) => {
     });
 }
 
+const sellersListPage = (req, res) => {
+    return res.render("sellers-list", {
+        username: req.session.user.username,
+    });
+}
+
+const buyersListPage = (req, res) => {
+    return res.render("buyers-list", {
+        username: req.session.user.username,
+    });
+}
+
 module.exports = {
     buyerLoginPage,
     buyerRegistrationPage,
@@ -55,5 +67,7 @@ module.exports = {
     accountPage,
     postProductPage,
     sellerProductPage,
-    purchasedPages
+    purchasedPages,
+    sellersListPage,
+    buyersListPage
 };

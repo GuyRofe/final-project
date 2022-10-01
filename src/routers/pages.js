@@ -9,7 +9,9 @@ const {
     accountPage,
     postProductPage,
     sellerProductPage,
-    purchasedPages
+    purchasedPages,
+    sellersListPage,
+    buyersListPage
 } = require('../controllers/pages');
 
 const {
@@ -38,5 +40,9 @@ router.get("/post-product", isSellerPager, postProductPage);
 router.get('/seller-product/:id', isSellerPager, sellerProductPage);
 
 router.get('/purchases', isBuyerPager, purchasedPages);
+
+router.get('/sellers-list', isBuyerPager, sellersListPage);
+
+router.get('/buyers-list', isBuyerPager, buyersListPage);
 
 module.exports = router;

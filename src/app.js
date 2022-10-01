@@ -8,6 +8,8 @@ const pagesRouter = require('./routers/pages');
 const accountRouter = require('./routers/account');
 const productRouter = require('./routers/product');
 const purchaseRouter = require('./routers/purchase');
+const sellersRouter = require('./routers/sellers');
+const buyersRouter = require('./routers/buyers');
 
 const app = express();
 
@@ -42,5 +44,7 @@ app.use(pagesRouter);
 app.use(accountRouter);
 app.use(productRouter);
 app.use(purchaseRouter);
+app.use(sellersRouter);
+app.use(buyersRouter);
 
 module.exports = app;

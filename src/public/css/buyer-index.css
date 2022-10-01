@@ -18,3 +18,10 @@
     text-decoration: none;
     background-color: white;
 }
+
+.overflowText {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

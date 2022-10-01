@@ -158,7 +158,7 @@ const fetchProducts = async (req, res) => {
     };
 
     if (titleQuery) {
-        findQuery.title = titleQuery;
+        findQuery.title = { "$regex": `${titleQuery}` }
     }
 
     if (minPriceQuery && typeof +minPriceQuery === 'number') {
