@@ -1,9 +1,10 @@
 <nav class="d-flex bg-dark p-2 justify-content-between align-items-center">
-    <a class="fs-5 fw-bold text-primary text-decoration-none logoHeader" href="/">Guy Shop</a>
-
     <div class="d-flex align-items-center">
-        <span id="navUsername" class="text-primary me-3 fw-bold">Hello, <%- username %></span>
+        <a class="fs-5 fw-bold text-primary text-decoration-none logoHeader me-3" href="/">Guy Shop</a>
 
+        <a href="/expensive-list" class="me-3">
+            <button type="button" class="btn btn-danger">Expensive</button>
+        </a>
         <a href="/buyers-list" class="me-3">
             <button type="button" class="btn btn-info">Buyers</button>
         </a>
@@ -13,7 +14,13 @@
         <a href="/purchases" class="me-3">
             <button type="button" class="btn btn-info">Purchases</button>
         </a>
-        <a href="/account" class="me-4">
+    </div>
+    
+
+    <div class="d-flex align-items-center">
+        <span id="navUsername" class="text-primary me-3 fw-bold">Hello, <%- username %></span>
+
+        <a href="/account" class="me-3">
             <button type="button" class="btn btn-secondary">My Account</button>
         </a>
         <button id="logoutButton" type="button" class="btn btn-warning">Logout</button>

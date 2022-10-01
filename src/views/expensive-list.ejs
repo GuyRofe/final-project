@@ -1,0 +1,29 @@
+<%- include('./shared/html-head.ejs') %>
+
+<link rel="stylesheet" type="text/css" href="./css/expensive-list.css">
+</head>
+
+<body>
+    <div class="d-flex flex-column h-100">
+        <%- include('./shared/buyer-nav'); %>
+
+        <main>
+            <header class="bg-danger bg-gradient mb-2 p-2">
+                <h2 class="fw-bold">Most Expensive</h1>
+            </header>
+
+            <section class="p-3">
+                <div id="productsContainer" class="d-flex productsList"></div>
+            </section>
+        </main>
+    </div>
+
+    <%- include('./shared/footer'); %>
+</body>
+
+<%- include('./shared/html-scripts.ejs') %>
+
+    <script src="./js/buyer-nav.js"></script> 
+    <script src="./js/expensive-list.js"></script> 
+
+</html>

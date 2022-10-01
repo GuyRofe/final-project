@@ -1,0 +1,23 @@
+.productsList {
+    width: 100%;
+    flex-wrap: wrap;
+    overflow-y: auto;
+}
+
+.productItem {
+    box-shadow: 4px 4px 5px #8c8c8c;
+    border: 1px solid #8c8c8c;
+    border-radius: 5px;
+    width: 20%;
+    max-width: 500px;
+    min-width: 300px;
+    text-decoration: none;
+    background-color: white;
+}
+
+.overflowText {
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
