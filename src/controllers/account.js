@@ -30,9 +30,7 @@ const deleteAccount = (req, res) => {
                     await Purchase.deleteOne({ product: mongoose.Types.ObjectId(product.id)})
                 });
             }
-        } catch (e) {
-            console.log(e);
-
+        } catch {
             return res.status(500).send({
                 message: 'Server error'
             });

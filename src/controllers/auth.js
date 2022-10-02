@@ -40,7 +40,7 @@ const buyerRegistration = async (req, res) => {
 
         req.session.user = { username, role: 0, id: newBuyer.id };
         
-       return res.status(201).send({ message: 'Successfully registered' });
+       return res.status(201).send({ userId: newBuyer.id, message: 'Successfully registered' });
     } catch {
         return res.status(500).send({
             message: 'Server error'
@@ -75,7 +75,7 @@ const buyerLogin = async (req, res) => {
 
         req.session.user = { username, role: 0, id: buyerInDb.id };
         
-       return res.status(200).send({ message: 'Successfully logged in' });
+       return res.status(200).send({ userId: buyerInDb.id ,message: 'Successfully logged in' });
     } catch {
         return res.status(500).send({
             message: 'Server error'
@@ -122,7 +122,7 @@ const sellerRegistration = async (req, res) => {
 
         req.session.user = { username, role: 1, id: newSeller.id };
         
-        return res.status(201).send({ message: 'Successfully registered' });
+        return res.status(201).send({ userId: newSeller.id, message: 'Successfully registered' });
     } catch {
         return res.status(500).send({
             message: 'Server error'
@@ -157,7 +157,7 @@ const sellerLogin = async (req, res) => {
 
         req.session.user = { username, role: 1, id: sellerInDb.id };
         
-       return res.status(200).send({ message: 'Successfully logged in' });
+       return res.status(200).send({ userId: sellerInDb.id, message: 'Successfully logged in' });
     } catch {
         return res.status(500).send({
             message: 'Server error'

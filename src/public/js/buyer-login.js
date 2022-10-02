@@ -28,7 +28,9 @@ $(document).ready(function() {
             data: postDataString,
             contentType: "application/json",
             dataType: "json",
-            success: function() {
+            success: function(response) {
+                socket.emit('update-user-id', response.userId);
+
                 window.location.replace('/');
             },
             error: function(response) {

@@ -4,6 +4,7 @@ require("dotenv").config();
 const mongoose = require('mongoose');
 
 const app = require('./app');
+const { setupSocket } = require('./socket');
 
 const port = process.env.PORT;
 const server = http.createServer(app);
@@ -13,6 +14,7 @@ mongoose.connect(process.env.DB_CONNECTION_STRING, {
     useNewUrlParser: true 
 }).then(() => {
     server.listen(+port);
+    setupSocket(server);
 
     console.log(`Server is listening on port "${port}"`);
 }).catch((e) => {

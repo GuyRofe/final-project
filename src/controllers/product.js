@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 
 const Product = require('../models/product');
 const Purchase = require('../models/purchase');
+const { purchaseProductAction } = require('../socket');
 
 const postProduct = async (req, res) => {
     const title = req.body.title;
@@ -212,6 +213,8 @@ const purchaseProduct = async (req, res) => {
         });
         
         await newPurchase.save();
+
+        purchaseProductAction(productId);
 
         return res.status(200).send({
             message: 'Successfully purchased'
