@@ -12,7 +12,8 @@ const {
     purchasedPages,
     sellersListPage,
     buyersListPage,
-    expensiveListPage
+    expensiveListPage,
+    aboutPage
 } = require('../controllers/pages');
 
 const {
@@ -47,5 +48,7 @@ router.get('/sellers-list', isBuyerPager, sellersListPage);
 router.get('/buyers-list', isBuyerPager, buyersListPage);
 
 router.get('/expensive-list', isBuyerPager, expensiveListPage);
+
+router.get('/about', aboutPage);
 
 module.exports = router;

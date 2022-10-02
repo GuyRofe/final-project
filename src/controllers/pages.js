@@ -64,6 +64,13 @@ const expensiveListPage = (req, res) => {
     });
 }
 
+const aboutPage = (req, res) => {
+    return res.render("about", {
+        role: req.session.user ? req.session.user.role : null,
+        username: req.session.user ? req.session.user.username : null,
+    });
+}
+
 module.exports = {
     buyerLoginPage,
     buyerRegistrationPage,
@@ -76,5 +83,6 @@ module.exports = {
     purchasedPages,
     sellersListPage,
     buyersListPage,
-    expensiveListPage
+    expensiveListPage,
+    aboutPage
 };

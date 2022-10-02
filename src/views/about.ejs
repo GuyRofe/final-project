@@ -1,0 +1,46 @@
+<%- include('./shared/html-head.ejs') %>
+
+<link rel="stylesheet" type="text/css" href="./css/about.css">
+</head>
+
+<body>
+    <div class="d-flex flex-column h-100">
+        <% if (role === null) { %>
+            <%- include('./shared/guest-nav'); %>
+        <% } %>
+
+        <% if (role === 0) { %>
+            <%- include('./shared/buyer-nav'); %>
+        <% } %>
+
+        <% if (role === 1) { %>
+            <%- include('./shared/seller-nav'); %>
+        <% } %>
+
+        <main class="d-flex align-items-center justify-content-center h-100 mainContainer">
+            <section class="d-flex flex-column align-items-center">
+                <h1 class="mb-3">ABOUT</h1>
+                <h4>Guy Project</h4>
+                <p>Explore, purchase and sell</p>
+
+                <video class="videoBackground" width="320" height="240" autoplay muted loop>
+                    <source src="/assets/shop.mp4" type="video/mp4">
+                </video> 
+            </section>
+        </main>
+    </div>
+
+    <%- include('./shared/footer'); %>
+</body>
+
+<%- include('./shared/html-scripts.ejs') %>
+
+<% if (role === 0) { %>
+    <script src="./js/buyer-nav.js"></script> 
+<% } %>
+
+<% if (role === 1) { %>
+    <script src="./js/seller-nav.js"></script> 
+<% } %>
+
+</html>
