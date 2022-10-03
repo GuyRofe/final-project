@@ -5,6 +5,7 @@
     crossorigin="anonymous"
 ></script>
 <script>
-    const userId = <%- JSON.stringify(locals?.userId || '') %>; 
+    const userId = <%- JSON.stringify(locals?.userId || '') %>;
+    const userRole = <%- JSON.stringify(locals?.role ?? '') %>;
 </script>
 <script src="/js/socket.js"></script> 

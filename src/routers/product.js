@@ -8,7 +8,6 @@ const {
     editSellerProduct,
     fetchProducts,
     purchaseProduct,
-    fetchExpensiveList
 } = require('../controllers/product');
 
 const {
@@ -31,7 +30,5 @@ router.delete('/delete-seller-product/:id', isSeller, deleteSellerProduct);
 router.patch('/edit-seller-product/:id', isSeller, editSellerProduct);
 
 router.get('/purchase-product/:id', isBuyer, purchaseProduct);
-
-router.get('/fetch-expensive-list', isBuyer, fetchExpensiveList);
 
 module.exports = router;

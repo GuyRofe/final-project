@@ -226,30 +226,6 @@ const purchaseProduct = async (req, res) => {
     }
 }
 
-const fetchExpensiveList = async (req, res) => {
-    try {
-        const expensiveList = await Product.aggregate([
-            {
-                $group: {
-                    _id: "$category",
-                    price:{
-                        $max: "$price"
-                    },
-                }
-            }
-        ]);
-
-        return res.status(200).send({
-            products: expensiveList,
-            message: 'Successfully fetched expensive list',
-        })
-    } catch {
-        return res.status(500).send({
-            message: 'Server error'
-        });
-    }
-}
-
 module.exports = {
     postProduct,
     fetchSellerProducts,
@@ -258,5 +234,4 @@ module.exports = {
     editSellerProduct,
     fetchProducts,
     purchaseProduct,
-    fetchExpensiveList
 };

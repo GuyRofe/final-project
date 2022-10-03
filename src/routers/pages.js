@@ -12,7 +12,6 @@ const {
     purchasedPages,
     sellersListPage,
     buyersListPage,
-    expensiveListPage,
     aboutPage
 } = require('../controllers/pages');
 
@@ -21,7 +20,6 @@ const {
     isGuestPager,
     isUserPager,
     isSellerPager,
-    isBuyerPage,
     isBuyerPager
 } = require('../middlewares/pages');
 
@@ -46,8 +44,6 @@ router.get('/purchases', isBuyerPager, purchasedPages);
 router.get('/sellers-list', isBuyerPager, sellersListPage);
 
 router.get('/buyers-list', isBuyerPager, buyersListPage);
-
-router.get('/expensive-list', isBuyerPager, expensiveListPage);
 
 router.get('/about', aboutPage);
 

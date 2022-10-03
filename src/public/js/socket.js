@@ -9,8 +9,6 @@ $(document).ready(function() {
 
     socket.on('product-purchased', (productTitle) => {
         if (notificationElement.length > 0) {
-            console.log(5);
-
             notificationElement.html(`Your product, "${productTitle}" was just purchased!`);
 
             if (notificationElement.hasClass('d-none')) {
