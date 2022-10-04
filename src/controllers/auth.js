@@ -1,3 +1,5 @@
+const axios = require('axios');
+
 const Buyer = require('../models/buyer');
 const Seller = require('../models/seller');
 
@@ -86,8 +88,9 @@ const buyerLogin = async (req, res) => {
 const sellerRegistration = async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
+    const address = req.body.address;
 
-    if (!username || !password || typeof username !== 'string' || typeof password !== 'string') {
+    if (!username || !password || !address || typeof username !== 'string' || typeof password !== 'string' || typeof address !== 'string') {
         return res.status(400).send({
             message: 'Invalid data'
         });
@@ -116,7 +119,20 @@ const sellerRegistration = async (req, res) => {
             });
         }
 
-        const newSeller = new Seller({ username, password });
+        const encodedAddress = encodeURIComponent(address);
+        const googleGeocodeResponse = await axios(
+            `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${process.env.GOOGLE_API_KEY}`
+        );
+        const googleGeocodeResponseData = googleGeocodeResponse.data;
+
+        if (googleGeocodeResponseData.results.length === 0) {
+            return res.status(400).send({
+                message: 'Invalid address'
+            });
+        }
+
+        const sellerLocation = googleGeocodeResponseData.results[0].geometry.location;
+        const newSeller = new Seller({ username, password, address: [sellerLocation.lat, sellerLocation.lng] });
         
         await newSeller.save();
 

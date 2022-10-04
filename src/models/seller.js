@@ -10,6 +10,10 @@ const sellerSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  address: {
+    type: [Number],
+    required: true
+  }
 });
 
 module.exports = mongoose.model('Seller', sellerSchema);

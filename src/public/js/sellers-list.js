@@ -32,13 +32,29 @@ $(document).ready(function() {
                     <div class="d-flex flex-column sellerItem p-3 me-2 mb-2">
                         <h3 class="text-dark overflowText">${seller.username}</h3>
                         
-                        <span>Min Price: ${seller.minPrice}</span>
-                        <span>Max Price: ${seller.maxPrice}</span>
+                        <span>Min Price: ${seller.minPrice || 'No Products'}</span>
+                        <span>Max Price: ${seller.maxPrice || 'No Products'}</span>
+
+                        <div id="google-map-${seller.username}" class="googleMapSeller"></div>
                     </div>
                 `;
             }, '');
 
-            sellersContainer.html(sellersHtml)
+            sellersContainer.html(sellersHtml);
+
+            sellers.forEach((seller) => {
+                const position = { lat: seller.address[0], lng: seller.address[1] };
+
+                const map = new google.maps.Map(document.getElementById(`google-map-${seller.username}`), {
+                    center: position,
+                    zoom: 15,
+                });
+                new google.maps.Marker({
+                    position: position,
+                    map: map,
+                  });
+                
+            });
         },
     });
 

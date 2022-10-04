@@ -11,10 +11,7 @@ const fetchSellersList = async (req, res) => {
         findQuery.username = { "$regex": `${usernameQuery}` }
     };
 
-    const pricesFindQuery = {
-        minPrice: { $gte: 0 },
-        
-    };
+    const pricesFindQuery = {};
 
     if (minPriceQuery && typeof +minPriceQuery === 'number') {
         pricesFindQuery.minPrice = {
@@ -44,6 +41,7 @@ const fetchSellersList = async (req, res) => {
             {
                 $project: {
                     username: 1,
+                    address: 1,
                     minPrice: { $min: "$products.price" },
                     maxPrice: { $max: "$products.price" }
                 }

@@ -2,6 +2,7 @@ $(document).ready(function() {
     const registrationForm = $('#registrationForm');
     const usernameInput = $('#sellerRegistrationUsernameInput');
     const passwordInput = $('#sellerRegistrationPasswordInput');
+    const addressInput = $('#sellerRegistrationAddressInput');
     const formError = $('#formError');
 
     registrationForm.on('submit', function(e) {
@@ -9,8 +10,9 @@ $(document).ready(function() {
 
         const username = usernameInput.val();
         const password = passwordInput.val();
+        const address = addressInput.val();
 
-        if (!username || !password) {
+        if (!username || !password || !addressInput) {
             formError.removeClass("d-none");
             formError.text('Please complete the form');
 
@@ -19,7 +21,8 @@ $(document).ready(function() {
 
         const postDataString = JSON.stringify({
             username,
-            password
+            password,
+            address
         });
         
         $.ajax({
