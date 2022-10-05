@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const axios = require('axios');
 
 const Product = require('../models/product');
 const Purchase = require('../models/purchase');
@@ -32,6 +33,11 @@ const postProduct = async (req, res) => {
 
     try {
         await newProduct.save();
+
+        axios.post(
+            `https://graph.facebook.com/${process.env.FACEBOOK_PAGE_ID}/feed?message=${title}&access_token=${process.env.FACEBOOK_ACCESS_TOKEN}`,
+            null
+        );
 
         return res.status(201).send({ message: 'Successfully posted product' });
     } catch {
