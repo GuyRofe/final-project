@@ -69,7 +69,7 @@ const aboutPage = (req, res) => {
     return res.render("about", {
         role: req.session.user ? req.session.user.role : null,
         username: req.session.user ? req.session.user.username : null,
-        userId: req.session.user.id,
+        userId: req.session.user ? req.session.user.id : null,
     });
 }
 
