@@ -13,7 +13,7 @@ mongoose.connect(process.env.DB_CONNECTION_STRING, {
     useUnifiedTopology: true, 
     useNewUrlParser: true 
 }).then(() => {
-    server.listen(+port);
+    server.listen(port);
     setupSocket(server);
 
     console.log(`Server is listening on port "${port}"`);
